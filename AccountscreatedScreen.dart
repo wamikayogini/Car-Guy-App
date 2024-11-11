@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_1/OTPScreen.dart';
+import 'package:test_1/SelectionScreen.dart';
 
 class AccountCreatedScreen extends StatelessWidget {
   @override
@@ -21,6 +23,15 @@ class AccountCreatedScreen extends StatelessWidget {
             ],
           ),
           onPressed: () {
+            if (Navigator.canPop(context)) {
+    Navigator.pop(context);
+  } else {
+    // You could navigate to a default screen here if there's no previous screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => OTPScreen()), // Example
+    );
+  }
             // Handle back button press
           },
         ),
@@ -157,6 +168,10 @@ class AccountCreatedScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                       ),
                       onPressed: () {
+                        Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SelectionScreen()),
+    );
                         // Handle continue button press
                       },
                       child: Text(

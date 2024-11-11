@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:test_1/AccountscreatedScreen.dart';
+import 'package:test_1/HomeScreen.dart';
 
 
 class OTPScreen extends StatelessWidget {
@@ -21,6 +23,17 @@ class OTPScreen extends StatelessWidget {
                       width: 24,
                     ),
                     onPressed: () {
+                     // Navigate back to the previous screen
+                          if (Navigator.canPop(context)) {
+    Navigator.pop(context);
+  } else {
+    // You could navigate to a default screen here if there's no previous screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()), // Example
+    );
+  }
+   
                       // Handle back button press
                     },
                   ),
@@ -111,6 +124,10 @@ class OTPScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
+                      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AccountCreatedScreen()),
+    );
                       // Handle verify button
                     },
                     style: ElevatedButton.styleFrom(

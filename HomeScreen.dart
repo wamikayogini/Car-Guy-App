@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_1/LoginScreen.dart';
+import 'package:test_1/OTPScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -24,7 +26,19 @@ class HomeScreen extends StatelessWidget {
                           height: 24,
                           width: 24,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                           
+                          if (Navigator.canPop(context)) {
+    Navigator.pop(context);
+  } else {
+    // You could navigate to a default screen here if there's no previous screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()), // Example
+    );
+  }
+                        },
+                        
                       ),
                       // Removed SizedBox
                       Text(
@@ -121,7 +135,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 35),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => OTPScreen()),
+    );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFF03232),
                       padding:
@@ -130,6 +149,7 @@ class HomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(40),
                       ),
                     ),
+                    
                     child: Text(
                       'Sign Up',
                       style: TextStyle(

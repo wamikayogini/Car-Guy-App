@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_1/AccountscreatedScreen.dart';
+import 'package:test_1/Searchscreen.dart';
 
 
 
@@ -45,6 +47,15 @@ class _SelectionScreenState extends State<SelectionScreen> {
             ],
           ),
           onPressed: () {
+            if (Navigator.canPop(context)) {
+    Navigator.pop(context);
+  } else {
+    // You could navigate to a default screen here if there's no previous screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => AccountCreatedScreen()), // Example
+    );
+  }
             // Handle back button press
           },
         ),
@@ -273,6 +284,10 @@ Container(
                         padding: EdgeInsets.symmetric(horizontal: 48, vertical: 14),
                       ),
                       onPressed: () {
+                        Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SearchScreen()),
+    );
                         // Handle confirm button press
                       },
                       child: Text(
