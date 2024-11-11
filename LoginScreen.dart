@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_1/HomeScreen.dart';
 
 //
 
@@ -21,12 +22,12 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () {
+                  //child: IconButton(
+                    //icon: Icon(Icons.arrow_back, color: Colors.white),
+                    //onPressed: () {
                       // Handle back action
-                    },
-                  ),
+                    //},
+                  //),
                 ),
                 Spacer(),
                 Center(
@@ -118,6 +119,10 @@ class LoginScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(vertical: 15.0),
                         ),
                         onPressed: () {
+                           Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
                           // Handle login action
                         },
                         child: Text(
